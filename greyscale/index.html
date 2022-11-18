@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        html.body {
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .img {
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            position: absolute;
+            left: -0%;
+            top: -2px;
+            appearance: none;
+            background-color: transparent;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            appearance: none;
+        }
+
+        input[type="range"]::-moz-range-track {
+            appearance: none;
+            height: 5px;
+        }
+
+        input[type="range"]::-ms-track {
+            appearance: none;
+            height: 5px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            height: 500px;
+            width: 10px;
+            border: 1px solid rgb(155, 155, 155);
+            background-color: rgba(255, 255, 255);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+    </style>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="img"></div>
+            <input type="range" id="slider" min="1" max="50" value="25">
+            <div class="slider-track">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            changeColor();
+        }
+        const slider = document.querySelector("#slider"),
+            img = document.querySelector(".img");
+
+        function changeColor() {
+            img.style.background =
+                `linear-gradient(90deg, rgba(0, 0, 0, 0) ${slider.value*2}%, rgba(94, 94, 94, 0.6) ${slider.value*2}%),
+                url("./img/1.jpg") center no-repeat `;
+        }
+        slider.addEventListener('input', changeColor)
+    </script>
+
+</body>
+
+</html>
