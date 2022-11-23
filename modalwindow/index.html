@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            box-sizing: border-box;
+            background: #A4BE7B;
+
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: space-around;
+            background: rgba(0, 0, 0, 0.4);
+
+            padding: 20px;
+            position: relative;
+            display: none;
+            overflow: auto;
+            position: fixed;
+        }
+
+        .container-window {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            padding: 20px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        span {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+
+        }
+
+        .openModal {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: rgb(75, 75, 195);
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <div class="wrapper">
+        <button class="openModal"> Открыть модальное окно</button>
+        <div class="container">
+            <div class="container-window">
+                Modal window text
+                <span class="btn">&#10005;</span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const openModal = document.querySelector(".openModal"),
+            closeBtn = document.querySelector(".btn"),
+            modalWindow = document.querySelector(".container");
+
+
+        openModal.onclick = function () {
+            modalWindow.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.onclick = function () {
+            modalWindow.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modalWindow) {
+                modalWindow.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

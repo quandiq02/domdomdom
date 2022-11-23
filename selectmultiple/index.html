@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid grey;
+            padding: 20px;
+        }
+
+        .show {
+            border: 1px solid grey;
+            width: 100%;
+            height: 30%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #select-list {
+            margin-top: 5px;
+            width: 100%;
+            height: 70%;
+        }
+
+        option {
+            height: 24%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="container">
+            <div class="show">
+
+            </div>
+            <select multiple name="" id="select-list">
+                <option value="one" id="one">one</option>
+                <option value="two" id="two">two</option>
+                <option value="three" id="three">three</option>
+                <option value="four" id="four">four</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        let showBlock = document.querySelector('.show'),
+            select = document.querySelector('#select-list');
+
+        function smth() {
+            let selected = [];
+            for (var option of select) {
+                if (option.selected) {
+                    selected.push(option.value)
+                }
+            }
+            showBlock.textContent = selected;
+        }
+        select.addEventListener('click', smth);
+    </script>
+</body>
+
+</html>

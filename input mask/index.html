@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      background-color: #F1D3B3;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .container {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      line-height: normal;
+
+      height: 50px;
+
+    }
+
+    .submitBtn {
+      align-self: center;
+      width: 100px;
+      margin-top: 20px;
+    }
+
+    .phone:focus {
+      font-size: 24px;
+      border: none;
+      outline: none;
+    }
+
+    .phone:placeholder-shown {
+      font-size: 24px;
+    }
+
+    .phone {
+      font-size: 24px;
+      border: none;
+      padding: 20px;
+    }
+  </style>
+  <div class="wrapper">
+    <div class="container">
+      <input type="tel" name="phone" id="phone" class="phone" value="+998">
+      <input type="submit" value="Отправить" class="submitBtn">
+    </div>
+  </div>
+
+</body>
+<script src="https://unpkg.com/imask"></script>
+<script>
+  let phoneInput = document.querySelector(".phone");
+  let btn = document.querySelector(".submitBtn");
+  const phoneMask = new IMask(phoneInput, {
+    mask: "+{998}(00)000-00-00",
+    lazy: false,
+  });
+</script>
+
+</html>
